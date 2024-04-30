@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.llistacontinguts_nachodeinza.PrimaryController">
+   <children>
+      <TextField fx:id="nom_t" layoutX="119.0" layoutY="171.0" prefHeight="24.0" prefWidth="171.0" />
+      <TextField fx:id="correu_t" layoutX="119.0" layoutY="200.0" />
+      <ComboBox fx:id="combobox" layoutX="384.0" layoutY="35.0" prefHeight="24.0" prefWidth="171.0" />
+      <Button layoutX="54.0" layoutY="274.0" mnemonicParsing="false" onAction="#afegir" text="Afegir Usuari" />
+      <Label layoutX="21.0" layoutY="175.0" text="Nom:" />
+      <Label layoutX="21.0" layoutY="204.0" text="Correu:" />
+      <Label layoutX="20.0" layoutY="234.0" text="Contrasenya:" />
+      <Button layoutX="105.0" layoutY="309.0" mnemonicParsing="false" onAction="#modificar" text="Modificar Usuari" />
+      <Button layoutX="171.0" layoutY="274.0" mnemonicParsing="false" onAction="#eliminar" text="Eliminar Usuari" />
+      <Label layoutX="311.0" layoutY="175.0" text="Nom:" />
+      <Label layoutX="311.0" layoutY="204.0" text="Contrasenya:" />
+      <TextField fx:id="correu_t2" layoutX="414.0" layoutY="171.0" />
+      <Button layoutX="455.0" layoutY="238.0" mnemonicParsing="false" onAction="#iniciSessio" text="Inici Sessió" />
+      <Label layoutX="45.0" layoutY="29.0" text="LlistaContinguts">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="95.0" layoutY="111.0" text="REGISTRE" underline="true">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="377.0" layoutY="111.0" text="INICI SESSIÓ" underline="true">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="contrasenya_t" layoutX="119.0" layoutY="230.0" />
+      <PasswordField fx:id="contrasenya_t2" layoutX="415.0" layoutY="200.0" />
+   </children>
+</AnchorPane>
