@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 public class SecondaryController {
@@ -35,7 +36,9 @@ public class SecondaryController {
     ComboBox llista_generes;
     @FXML
     TextField nom_genere;
-
+    @FXML
+    ListView listview_contingut;
+    
     public void mostraID() {
         id_usuari.setText("ID:" + model.getId_usuari());
     }
@@ -48,6 +51,7 @@ public class SecondaryController {
         llista_generes.setItems(model.llistaGeneres());
         edad.setItems(model.llistaEdad());
         llista_contingut.setItems(model.llistaContingut());
+        listview_contingut.setItems(model.llistaContingutUsuari());
     }
 
     public void afegirGenere() throws SQLException, IOException {
@@ -69,6 +73,7 @@ public class SecondaryController {
         boolean ok = model.afegeixContingut(contingut);
         if (ok) {
             alerta("Contingut Afegit!!" + model.getNom_genere());
+            listview_contingut.setItems(model.llistaContingutUsuari());
         } else {
             alerta("No s'ha pogut afegir el Contingut");
         }

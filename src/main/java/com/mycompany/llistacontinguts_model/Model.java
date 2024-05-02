@@ -90,6 +90,36 @@ public class Model {
         return llistaContinguts;
     }
 
+    public ObservableList<ContingutUsuari> llistaContingutUsuari() {
+        ObservableList<ContingutUsuari> llistaContingutUsuari = FXCollections.observableArrayList();
+        String sql = "SELECT c.titul, c.descripcio, c.clasificacio_edad, c.any_llançament, c.genere FROM CONTINGUT c INNER JOIN USUARI_CONTINGUT uc ON c.contingut_id = uc.contingut_id WHERE uc.usuari_id = ?";
+        Connection connection = new Connexio().connecta();
+        try {
+
+            PreparedStatement ordre5 = connection.prepareStatement(sql);
+            ordre5.setInt(1, id_usuari);
+            ResultSet resultSet5 = ordre5.executeQuery();
+            while (resultSet5.next()) {
+                llistaContingutUsuari.add(
+                        new ContingutUsuari(
+                                resultSet5.getString("titul"),
+                                resultSet5.getString("descripcio"),
+                                resultSet5.getString("clasificacio_edad"),
+                                resultSet5.getString("any_llançament"),
+                                resultSet5.getString("genere")
+                        )
+                );
+            }
+
+            connection.close();
+
+        } catch (SQLException throwables) {
+            System.out.println("Error:" + throwables.getMessage());
+        }
+        return llistaContingutUsuari;
+
+    }
+
     public ObservableList<String> llistaEdad() {
         ObservableList<String> llistaEdad = FXCollections.observableArrayList();
 
@@ -108,7 +138,6 @@ public class Model {
     public ObservableList<Genere> llistaGeneres() {
         ObservableList<Genere> llistaGeneres = FXCollections.observableArrayList();
         String sql = "select nom_genere from GENERE";
-        //String sql="select nom from usuaris";
         Connection connection = new Connexio().connecta();
         try {
             Statement ordre = connection.createStatement();
