@@ -123,16 +123,39 @@ public class Model {
     public ObservableList<String> llistaEdad() {
         ObservableList<String> llistaEdad = FXCollections.observableArrayList();
 
-        if (llistaEdad.contains(llistaEdad)) {
-
-        } else {
-
-            llistaEdad.add("+3");
-            llistaEdad.add("+12");
-            llistaEdad.add("+18");
-        }
+        llistaEdad.add("+3");
+        llistaEdad.add("+12");
+        llistaEdad.add("+18");
 
         return llistaEdad;
+    }
+
+    public ObservableList<String> llistaEstat() {
+        ObservableList<String> llistaEstat = FXCollections.observableArrayList();
+
+        llistaEstat.add("Per veure");
+        llistaEstat.add("Vista");
+        llistaEstat.add("Veient");
+
+        return llistaEstat;
+    }
+
+    public ObservableList<String> llistaCalificacio() {
+        ObservableList<String> llistaCalificacio = FXCollections.observableArrayList();
+
+        llistaCalificacio.add("0");
+        llistaCalificacio.add("1");
+        llistaCalificacio.add("2");
+        llistaCalificacio.add("3");
+        llistaCalificacio.add("4");
+        llistaCalificacio.add("5");
+        llistaCalificacio.add("6");
+        llistaCalificacio.add("7");
+        llistaCalificacio.add("8");
+        llistaCalificacio.add("9");
+        llistaCalificacio.add("10");
+
+        return llistaCalificacio;
     }
 
     public ObservableList<Genere> llistaGeneres() {

@@ -10,10 +10,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-
 public class PrimaryController {
-    
-    
+
     Model model;
 
     @FXML
@@ -41,7 +39,7 @@ public class PrimaryController {
     public void afegir() throws SQLException, IOException {
         Usuari usuari = new Usuari(nom_t.getText(),
                 correu_t.getText(), contrasenya_t.getText());
-        
+
         boolean ok = model.afegeixUsuari(usuari);
         if (ok) {
             llista();
@@ -59,9 +57,9 @@ public class PrimaryController {
 
         Usuari usuari = new Usuari(nom_t.getText(), correu_t.getText(),
                 contrasenya_t.getText());
-        
+
         boolean ok = model.modificarUsuari(usuari);
-        
+
         if (ok) {
             llista();
             combobox.getSelectionModel().select(pos);
@@ -75,24 +73,22 @@ public class PrimaryController {
 
     @FXML
     public void iniciSessio() throws SQLException, IOException {
-    
+
         Usuari usuari = new Usuari(correu_t2.getText(), contrasenya_t2.getText());
         boolean ok = model.consultarUsuari(usuari);
-        
+
         if (ok) {
             llista();
-            alerta("Sessió iniciada! " +  "ID: "  + model.getId_usuari());
+            alerta("Sessió iniciada! " + "ID: " + model.getId_usuari());
             App.setRoot("secondary");
             esborrar();
-        }
-        else{
-        
+        } else {
+
             alerta("No s'ha pogut iniciar sessió!");
-            
-        
+
         }
     }
-    
+
     @FXML
     public void imprimeix() {
 
@@ -145,11 +141,11 @@ public class PrimaryController {
             System.out.println("error::" + ex.getMessage());
         }
     }
-    
-    public void injecta(Model model){
-    
+
+    public void injecta(Model model) {
+
         this.model = model;
-    
+
     }
-    
+
 }

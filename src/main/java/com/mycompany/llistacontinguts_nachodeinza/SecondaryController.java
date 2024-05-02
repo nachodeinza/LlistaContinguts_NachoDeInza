@@ -38,7 +38,7 @@ public class SecondaryController {
     TextField nom_genere;
     @FXML
     ListView listview_contingut;
-    
+
     public void mostraID() {
         id_usuari.setText("ID:" + model.getId_usuari());
     }
@@ -56,11 +56,12 @@ public class SecondaryController {
 
     public void afegirGenere() throws SQLException, IOException {
         Genere genere = new Genere(nom_genere.getText());
-
         boolean ok = model.afegeixGenere(genere);
 
         if (ok) {
             alerta("Genere Afegit!!");
+            llista_generes.setItems(model.llistaGeneres());
+            esborrarGenere();
         } else {
             alerta("No s'ha pogut afegir el Génere");
         }
@@ -96,6 +97,12 @@ public class SecondaryController {
         llista_generes.getSelectionModel().select(null);
     }
 
+    public void esborrarGenere() {
+
+        nom_genere.clear();
+
+    }
+
     public void initialize() {
 
         try {
@@ -119,6 +126,11 @@ public class SecondaryController {
             alerta("No s'ha pogut eliminar el contingut!!");
         }
 
+    }
+
+    @FXML
+    private void switchToThird() throws IOException {
+        App.setRoot("third");
     }
 
 }

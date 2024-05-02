@@ -34,5 +34,6 @@
       <Button layoutX="467.0" layoutY="27.0" mnemonicParsing="false" onAction="#switchToPrimary" text="Tancar Sessió" />
       <TextField fx:id="nom_genere" layoutX="319.0" layoutY="335.0" prefHeight="26.0" prefWidth="187.0" />
       <Button layoutX="518.0" layoutY="332.0" mnemonicParsing="false" onAction="#afegirGenere" text="Crear" />
+      <Button layoutX="266.0" layoutY="20.0" mnemonicParsing="false" onAction="#switchToThird" text="Button" />
    </children>
 </AnchorPane>
