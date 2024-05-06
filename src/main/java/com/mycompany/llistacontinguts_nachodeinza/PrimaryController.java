@@ -20,8 +20,6 @@ public class PrimaryController {
     }
 
     @FXML
-    ComboBox combobox;
-    @FXML
     TextField nom_t;
     @FXML
     TextField correu_t;
@@ -33,17 +31,18 @@ public class PrimaryController {
     PasswordField contrasenya_t2;
 
     public void llista() throws SQLException {
-        combobox.setItems(model.llistaUsuaris());
+        
     }
 
     public void afegir() throws SQLException, IOException {
+        
         Usuari usuari = new Usuari(nom_t.getText(),
                 correu_t.getText(), contrasenya_t.getText());
 
         boolean ok = model.afegeixUsuari(usuari);
         if (ok) {
             llista();
-            combobox.getSelectionModel().select(0);
+            
             alerta("Usuari Afegit!!");
             esborrar();
         } else {
@@ -53,8 +52,7 @@ public class PrimaryController {
 
     @FXML
     public void modificar() throws SQLException, IOException {
-        int pos = combobox.getSelectionModel().getSelectedIndex();
-
+        
         Usuari usuari = new Usuari(nom_t.getText(), correu_t.getText(),
                 contrasenya_t.getText());
 
@@ -62,7 +60,7 @@ public class PrimaryController {
 
         if (ok) {
             llista();
-            combobox.getSelectionModel().select(pos);
+            
             alerta("Usuari Modificat!!");
             esborrar();
         } else {
@@ -90,27 +88,16 @@ public class PrimaryController {
     }
 
     @FXML
-    public void imprimeix() {
-
-        if (!combobox.getSelectionModel().isEmpty()) {
-            Usuari usuari = (Usuari) combobox.getSelectionModel().getSelectedItem();
-            nom_t.setText(usuari.getNom());
-            correu_t.setText(usuari.getCorreu());
-            contrasenya_t.setText(usuari.getContrasenya());
-            correu_t.setText(usuari.getCorreu());
-
-        }
-
-    }
+    
 
     public void eliminar() throws SQLException {
-        int pos = combobox.getSelectionModel().getSelectedIndex();
+
         Usuari usuari = new Usuari(nom_t.getText(), correu_t.getText(), contrasenya_t.getText());
 
         boolean ok = model.eliminarUsuari(usuari);
         if (ok) {
             llista();
-            combobox.getSelectionModel().select(0);
+            
             alerta("Usuari Eliminat!!");
             esborrar();
         } else {
@@ -123,7 +110,7 @@ public class PrimaryController {
         nom_t.clear();
         correu_t.clear();
         contrasenya_t.clear();
-        combobox.getSelectionModel().select(null);
+        
     }
 
     private void alerta(String text) {

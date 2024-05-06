@@ -5,11 +5,17 @@
 package com.mycompany.llistacontinguts_nachodeinza;
 
 import com.mycompany.llistacontinguts_model.Model;
+import com.mycompany.llistacontinguts_model.Valoracio;
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDate;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 
 /**
  *
@@ -26,6 +32,8 @@ public class ThirdController {
     }
     @FXML
     Label nom;
+    @FXML
+    TextArea comentari;
     @FXML
     ComboBox estat;
     @FXML
@@ -50,6 +58,27 @@ public class ThirdController {
             System.out.println("error::" + ex.getMessage());
         }
 
+    }
+    
+    public void afegirValoracio() throws SQLException   {
+        
+        Valoracio valoracio = new Valoracio(model.getId_usuari(), comentari.getText(), Date.valueOf(LocalDate.now()), calificacio.getSelectionModel().getSelectedItem().toString(), model.getId_contingut2());
+        Valoracio valoracio1 = new Valoracio(estat.getSelectionModel().getSelectedItem().toString(),calificacio.getSelectionModel().getSelectedItem().toString());
+        boolean ok = model.afegeixValoracio(valoracio);
+        boolean ok1 = model.afegeixEstat(valoracio1);
+        if (ok && ok1) {
+            alerta("Valoració Afegida!!!");
+        } else {
+            alerta("No s'ha pogut afegir el Contingut");
+        }
+    }
+    
+    private void alerta(String text) {
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setHeaderText(null);
+        alerta.setTitle("Informació");
+        alerta.setContentText(text);
+        alerta.show();
     }
 
 }

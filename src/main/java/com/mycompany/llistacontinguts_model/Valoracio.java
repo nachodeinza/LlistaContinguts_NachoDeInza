@@ -4,19 +4,69 @@
  */
 package com.mycompany.llistacontinguts_model;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
 /**
  *
  * @author Nacho
  */
 public class Valoracio {
+    private int id;
+    private int usuari_id;
+    private String comentari;
+    private Date data;
+    private String calificació;
+    private int contingut_id;
     private String estat;
-    private int calificació;
 
-    public Valoracio(String estat, int calificació) {
+    public Valoracio(int usuari_id, String comentari, Date data, String calificació, int contingut_id) {
+        this.usuari_id = usuari_id;
+        this.comentari = comentari;
+        this.data = data;
+        this.calificació = calificació;
+        this.contingut_id = contingut_id;
+    }
+    
+
+    public Valoracio( String estat, String calificació) {
         this.estat = estat;
         this.calificació = calificació;
     }
 
+    public int getUsuari_id() {
+        return usuari_id;
+    }
+
+    public void setUsuari_id(int usuari_id) {
+        this.usuari_id = usuari_id;
+    }
+
+    public String getComentari() {
+        return comentari;
+    }
+
+    public void setComentari(String comentari) {
+        this.comentari = comentari;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public int getContingut_id() {
+        return contingut_id;
+    }
+
+    public void setContingut_id(int contingut_id) {
+        this.contingut_id = contingut_id;
+    }
+    
+    
     public Valoracio(String estat) {
         this.estat = estat;
     }
@@ -29,11 +79,11 @@ public class Valoracio {
         this.estat = estat;
     }
 
-    public int getCalificació() {
+    public String getCalificació() {
         return calificació;
     }
 
-    public void setCalificació(int calificació) {
+    public void setCalificació(String calificació) {
         this.calificació = calificació;
     }
     

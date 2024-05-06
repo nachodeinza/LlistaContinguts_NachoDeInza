@@ -8,10 +8,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="600.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.llistacontinguts_nachodeinza.SecondaryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(#F5955D,#F5AF5D,#F5605D);" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.llistacontinguts_nachodeinza.SecondaryController">
    <children>
       <ListView fx:id="listview_contingut" layoutX="32.0" layoutY="84.0" prefHeight="347.0" prefWidth="258.0" />
-      <Label layoutX="54.0" layoutY="36.0" text="El meu contingut" underline="true">
+      <Label layoutX="32.0" layoutY="28.0" text="El meu contingut" underline="true">
          <font>
             <Font size="25.0" />
          </font>
@@ -26,14 +26,12 @@
       <ComboBox fx:id="llista_generes" layoutX="405.0" layoutY="280.0" prefHeight="26.0" prefWidth="173.0" />
       <TextField fx:id="descripcio" layoutX="405.0" layoutY="180.0" prefHeight="26.0" prefWidth="173.0" />
       <TextField fx:id="any" layoutX="405.0" layoutY="244.0" prefHeight="26.0" prefWidth="173.0" />
-      <Button layoutX="313.0" layoutY="386.0" mnemonicParsing="false" onAction="#afegirContingut" text="Afegir" />
-      <Button layoutX="399.0" layoutY="386.0" mnemonicParsing="false" text="Modificar" />
-      <Button layoutX="501.0" layoutY="386.0" mnemonicParsing="false" onAction="#eliminar" text="Eliminar" />
+      <Button layoutX="331.0" layoutY="393.0" mnemonicParsing="false" onAction="#afegirContingut" prefHeight="51.0" prefWidth="104.0" text="Afegir" />
+      <Button layoutX="466.0" layoutY="393.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="51.0" prefWidth="104.0" text="Eliminar" />
       <ComboBox fx:id="llista_contingut" layoutX="316.0" layoutY="99.0" prefHeight="24.0" prefWidth="258.0" />
-      <Label layoutX="346.0" layoutY="69.0" text="Seleccionar contingut existent" />
-      <Button layoutX="467.0" layoutY="27.0" mnemonicParsing="false" onAction="#switchToPrimary" text="Tancar Sessió" />
+      <Label layoutX="316.0" layoutY="76.0" text="Veure contingut existent" />
+      <Button layoutX="445.0" layoutY="26.0" mnemonicParsing="false" onAction="#switchToPrimary" text="Tancar Sessió" />
       <TextField fx:id="nom_genere" layoutX="319.0" layoutY="335.0" prefHeight="26.0" prefWidth="187.0" />
       <Button layoutX="518.0" layoutY="332.0" mnemonicParsing="false" onAction="#afegirGenere" text="Crear" />
-      <Button layoutX="266.0" layoutY="20.0" mnemonicParsing="false" onAction="#switchToThird" text="Button" />
    </children>
 </AnchorPane>

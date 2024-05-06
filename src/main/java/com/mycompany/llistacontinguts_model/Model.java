@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -138,6 +139,30 @@ public class Model {
 
     }
 
+    public ObservableList<Valoracio> llistaValoracions() {
+
+        ObservableList<Valoracio> llistaValoracions = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM VALORACIO ";
+        Connection connection = new Connexio().connecta();
+        try {
+            PreparedStatement ordre6 = connection.prepareStatement(sql);
+            ResultSet resultSet6 = ordre6.executeQuery();
+            while (resultSet6.next()) {
+                llistaValoracions.add(
+                        new Valoracio(resultSet6.getInt(1),
+                                resultSet6.getString(2),
+                                resultSet6.getDate(3),
+                                resultSet6.getString(4),
+                                resultSet6.getInt(5))
+                );
+            }
+        } catch (Exception e) {
+        }
+
+        return llistaValoracions;
+
+    }
+
     public ObservableList<String> llistaEdad() {
         ObservableList<String> llistaEdad = FXCollections.observableArrayList();
 
@@ -226,7 +251,7 @@ public class Model {
 
         return ok;
     }
-    
+
     public boolean consultarID_Contingut() {
         boolean ok = false;
         String sql = "SELECT contingut_id FROM CONTINGUT where titul=?";
@@ -430,5 +455,47 @@ public class Model {
         }
 
         return ok;
+    }
+
+    public boolean afegeixValoracio(Valoracio valoracio) throws SQLException {
+        boolean ok = false;
+        Connection connection = new Connexio().connecta();
+        String sql = "INSERT INTO VALORACIO(usuari_id, calificacio, comentari, data_valoracio, contingut_id) VALUES (?,?,?,?,?)";
+        PreparedStatement ordre = connection.prepareStatement(sql);
+        try {
+            ordre.setInt(1, id_usuari);
+            ordre.setString(2,valoracio.getCalificació());
+            ordre.setString(3, valoracio.getComentari());
+            ordre.setDate(4, valoracio.getData());
+            ordre.setInt(5, id_contingut2);
+            ordre.execute();
+            ok = true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
+        return ok;
+
+    }
+    
+    public boolean afegeixEstat(Valoracio valoracio) throws SQLException {
+    boolean ok = false;
+    Connection connection = new Connexio().connecta();
+    String sql = "UPDATE USUARI_CONTINGUT SET estat=?, calificacio=? where contingut_id=? AND usuari_id=?";
+    PreparedStatement ordre = connection.prepareStatement(sql);
+        try {
+            ordre.setString(1, valoracio.getEstat());
+            ordre.setString(2, valoracio.getCalificació());
+            ordre.setInt(3, id_contingut2);
+            ordre.setInt(4, id_usuari);
+            ordre.execute();
+            ok = true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
+        
+    return ok;
+    
     }
 }
