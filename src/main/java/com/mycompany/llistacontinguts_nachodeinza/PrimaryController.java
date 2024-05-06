@@ -30,19 +30,14 @@ public class PrimaryController {
     @FXML
     PasswordField contrasenya_t2;
 
-    public void llista() throws SQLException {
-        
-    }
-
     public void afegir() throws SQLException, IOException {
-        
+
         Usuari usuari = new Usuari(nom_t.getText(),
                 correu_t.getText(), contrasenya_t.getText());
 
         boolean ok = model.afegeixUsuari(usuari);
         if (ok) {
-            llista();
-            
+
             alerta("Usuari Afegit!!");
             esborrar();
         } else {
@@ -52,15 +47,14 @@ public class PrimaryController {
 
     @FXML
     public void modificar() throws SQLException, IOException {
-        
+
         Usuari usuari = new Usuari(nom_t.getText(), correu_t.getText(),
                 contrasenya_t.getText());
 
         boolean ok = model.modificarUsuari(usuari);
 
         if (ok) {
-            llista();
-            
+
             alerta("Usuari Modificat!!");
             esborrar();
         } else {
@@ -76,7 +70,7 @@ public class PrimaryController {
         boolean ok = model.consultarUsuari(usuari);
 
         if (ok) {
-            llista();
+
             alerta("Sessió iniciada! " + "ID: " + model.getId_usuari());
             App.setRoot("secondary");
             esborrar();
@@ -88,7 +82,6 @@ public class PrimaryController {
     }
 
     @FXML
-    
 
     public void eliminar() throws SQLException {
 
@@ -96,8 +89,7 @@ public class PrimaryController {
 
         boolean ok = model.eliminarUsuari(usuari);
         if (ok) {
-            llista();
-            
+
             alerta("Usuari Eliminat!!");
             esborrar();
         } else {
@@ -110,7 +102,7 @@ public class PrimaryController {
         nom_t.clear();
         correu_t.clear();
         contrasenya_t.clear();
-        
+
     }
 
     private void alerta(String text) {
@@ -119,14 +111,6 @@ public class PrimaryController {
         alerta.setTitle("Informació");
         alerta.setContentText(text);
         alerta.show();
-    }
-
-    public void initialize() {
-        try {
-            llista();
-        } catch (SQLException ex) {
-            System.out.println("error::" + ex.getMessage());
-        }
     }
 
     public void injecta(Model model) {
