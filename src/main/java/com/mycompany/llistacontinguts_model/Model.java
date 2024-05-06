@@ -19,7 +19,25 @@ public class Model {
     private int id_usuari;
     private int id_genere;
     private int id_contingut;
+    private int id_contingut2;
     private String nom_genere;
+    private String nom_contingut;
+
+    public String getNom_contingut() {
+        return nom_contingut;
+    }
+
+    public void setNom_contingut(String nom_contingut) {
+        this.nom_contingut = nom_contingut;
+    }
+
+    public int getId_contingut() {
+        return id_contingut;
+    }
+
+    public int getId_contingut2() {
+        return id_contingut2;
+    }
 
     public void setNom_genere(String nom_genere) {
         this.nom_genere = nom_genere;
@@ -193,6 +211,33 @@ public class Model {
 
             if (resultSet.next()) {
                 id_usuari = resultSet.getInt("usuari_id");
+                ok = true;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error SQL:" + e.getMessage());
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                System.out.println("Error:" + e.getMessage());
+            }
+        }
+
+        return ok;
+    }
+    
+    public boolean consultarID_Contingut() {
+        boolean ok = false;
+        String sql = "SELECT contingut_id FROM CONTINGUT where titul=?";
+        Connection connection = new Connexio().connecta();
+        try {
+            PreparedStatement ordre = connection.prepareStatement(sql);
+            ordre.setString(1, nom_contingut);
+            ResultSet resultSet = ordre.executeQuery();
+
+            if (resultSet.next()) {
+                id_contingut2 = resultSet.getInt("contingut_id");
                 ok = true;
             }
 

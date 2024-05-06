@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 
 /**
  *
@@ -23,6 +24,8 @@ public class ThirdController {
         this.model = model;
 
     }
+    @FXML
+    Label nom;
     @FXML
     ComboBox estat;
     @FXML
@@ -42,6 +45,7 @@ public class ThirdController {
 
         try {
             llistaValoracions();
+            nom.setText(model.getNom_contingut());
         } catch (SQLException ex) {
             System.out.println("error::" + ex.getMessage());
         }

@@ -5,7 +5,7 @@
 package com.mycompany.llistacontinguts_model;
 
 
-class ContingutUsuari {
+public class ContingutUsuari {
     private String titol;
     private String descripcio;
     private String edad;
@@ -24,6 +24,12 @@ class ContingutUsuari {
     public String toString() {
         return titol + ", " + descripcio  + ", " + edad + ", " +  any + ", " + genere ;
     }
+
+    public String getTitol() {
+        return titol;
+    }
+    
+    
     
     
 }
