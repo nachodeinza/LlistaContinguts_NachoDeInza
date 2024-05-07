@@ -10,7 +10,7 @@ package com.mycompany.llistacontinguts_model;
  */
 public class Contingut {
     private int id;
-    private String titol;
+    private final String titol;
     private String descripcio;
     private String edad;
     private String any;

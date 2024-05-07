@@ -6,11 +6,11 @@ package com.mycompany.llistacontinguts_model;
 
 
 public class ContingutUsuari {
-    private String titol;
-    private String descripcio;
-    private String edad;
-    private String any;
-    private String genere;
+    private final String titol;
+    private final String descripcio;
+    private final String edad;
+    private final String any;
+    private final String genere;
 
     public ContingutUsuari(String titol, String descripcio, String edad, String any, String genere) {
         this.titol = titol;
@@ -28,7 +28,5 @@ public class ContingutUsuari {
     public String getTitol() {
         return titol;
     }
-    
-    
     
 }
