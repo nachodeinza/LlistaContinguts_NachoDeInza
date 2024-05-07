@@ -18,7 +18,7 @@
       <Label layoutX="20.0" layoutY="234.0" text="Contrasenya:" />
       <Button layoutX="102.0" layoutY="329.0" mnemonicParsing="false" onAction="#modificar" text="Modificar Usuari" />
       <Button layoutX="175.0" layoutY="283.0" mnemonicParsing="false" onAction="#eliminar" text="Eliminar Usuari" />
-      <Label layoutX="311.0" layoutY="196.0" prefHeight="10.0" prefWidth="35.0" text="Nom:" />
+      <Label layoutX="311.0" layoutY="196.0" prefHeight="16.0" prefWidth="49.0" text="Correu:" />
       <Label layoutX="311.0" layoutY="226.0" text="Contrasenya:" />
       <Button layoutX="449.0" layoutY="267.0" mnemonicParsing="false" onAction="#iniciSessio" text="Inici Sessió" />
       <Label layoutX="99.0" layoutY="120.0" text="REGISTRE" underline="true">
@@ -33,12 +33,12 @@
       </Label>
       <PasswordField fx:id="contrasenya_t" layoutX="119.0" layoutY="230.0" prefHeight="26.0" prefWidth="173.0" />
       <PasswordField fx:id="contrasenya_t2" layoutX="415.0" layoutY="221.0" prefHeight="26.0" prefWidth="171.0" />
-      <PasswordField fx:id="correu_t2" layoutX="415.0" layoutY="191.0" prefHeight="26.0" prefWidth="171.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="63.0" layoutX="136.0" layoutY="31.0" stroke="BLACK" strokeType="INSIDE" width="328.0" />
       <Label layoutX="146.0" layoutY="44.0" text="LLISTA CONTINGUTS">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
+      <TextField fx:id="correu_t2" layoutX="414.0" layoutY="191.0" prefHeight="26.0" prefWidth="173.0" />
    </children>
 </AnchorPane>
