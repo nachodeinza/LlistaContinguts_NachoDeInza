@@ -4,11 +4,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(#F5955D,#F5AF5D,#F5605D);" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.llistacontinguts_nachodeinza.PrimaryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, white,white, gray);" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.llistacontinguts_nachodeinza.PrimaryController">
    <children>
       <TextField fx:id="nom_t" layoutX="119.0" layoutY="171.0" prefHeight="26.0" prefWidth="173.0" />
       <TextField fx:id="correu_t" layoutX="119.0" layoutY="200.0" prefHeight="26.0" prefWidth="173.0" />
@@ -33,12 +34,15 @@
       </Label>
       <PasswordField fx:id="contrasenya_t" layoutX="119.0" layoutY="230.0" prefHeight="26.0" prefWidth="173.0" />
       <PasswordField fx:id="contrasenya_t2" layoutX="415.0" layoutY="221.0" prefHeight="26.0" prefWidth="171.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="63.0" layoutX="136.0" layoutY="31.0" stroke="BLACK" strokeType="INSIDE" width="328.0" />
-      <Label layoutX="146.0" layoutY="44.0" text="LLISTA CONTINGUTS">
+      <TextField fx:id="correu_t2" layoutX="414.0" layoutY="191.0" prefHeight="26.0" prefWidth="173.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0084ff" height="68.0" layoutX="128.0" layoutY="28.0" stroke="BLACK" strokeType="INSIDE" width="343.0" />
+      <Label alignment="CENTER" layoutX="146.0" layoutY="44.0" text="LLISTA CONTINGUTS">
          <font>
             <Font size="30.0" />
          </font>
+         <effect>
+            <InnerShadow />
+         </effect>
       </Label>
-      <TextField fx:id="correu_t2" layoutX="414.0" layoutY="191.0" prefHeight="26.0" prefWidth="173.0" />
    </children>
 </AnchorPane>
