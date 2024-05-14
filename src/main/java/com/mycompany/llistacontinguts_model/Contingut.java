@@ -9,13 +9,26 @@ package com.mycompany.llistacontinguts_model;
  * @author alumne
  */
 public class Contingut {
+
+    /**
+     * En el contingut volem guardar el id, que es autoincrementa, el titol, la
+     * descripció, l'edad, l'any i el genere.
+     */
     private int id;
-    private String titol;
+    private final String titol;
     private String descripcio;
     private String edad;
     private String any;
     private String genere;
 
+    /**
+     * Constructor.
+     * @param titol
+     * @param descripcio
+     * @param edad
+     * @param any
+     * @param genere 
+     */
     public Contingut(String titol, String descripcio, String edad, String any, String genere) {
         this.titol = titol;
         this.descripcio = descripcio;
@@ -24,11 +37,14 @@ public class Contingut {
         this.genere = genere;
     }
 
+    /**
+     * Getters i Setters.
+     * @param titol 
+     */
     public Contingut(String titol) {
         this.titol = titol;
     }
 
-    
     public String getTitol() {
         return titol;
     }
@@ -51,8 +67,7 @@ public class Contingut {
 
     @Override
     public String toString() {
-        return titol + ", " + edad + ", " + any + ", " + genere ;
+        return titol + ", " + edad + ", " + any + ", " + genere;
     }
-    
-    
+
 }

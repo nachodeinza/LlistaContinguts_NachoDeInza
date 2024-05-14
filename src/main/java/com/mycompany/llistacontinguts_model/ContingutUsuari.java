@@ -4,8 +4,13 @@
  */
 package com.mycompany.llistacontinguts_model;
 
-
 public class ContingutUsuari {
+
+    /**
+     * En aquesta clase guardo el titol, descripció, edad, any i genere. Sería
+     * igual que el Contingut pero en aquesta classe guardarem cada contingut
+     * per usuari.
+     */
     private final String titol;
     private final String descripcio;
     private final String edad;
@@ -22,11 +27,11 @@ public class ContingutUsuari {
 
     @Override
     public String toString() {
-        return titol + ", " + descripcio  + ", " + edad + ", " +  any + ", " + genere ;
+        return titol + ", " + descripcio + ", " + edad + ", " + any + ", " + genere;
     }
 
     public String getTitol() {
         return titol;
     }
-    
+
 }

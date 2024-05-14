@@ -9,12 +9,17 @@ package com.mycompany.llistacontinguts_model;
  * @author alumne
  */
 public class Usuari {
+
+    /**
+     * En Usuari guardem el id, nom, correu i contrasenya. Que el ID també
+     * s'autoincrementa.
+     */
     private int id;
     private String nom;
     private String correu;
     private String contrasenya;
 
-    public Usuari(int id,String nom, String correu, String contrasenya) {
+    public Usuari(int id, String nom, String correu, String contrasenya) {
         this.id = id;
         this.nom = nom;
         this.correu = correu;
@@ -25,7 +30,6 @@ public class Usuari {
         this.correu = correu;
         this.contrasenya = contrasenya;
     }
-    
 
     public Usuari(String nom, String correu, String contrasenya) {
         this.nom = nom;
@@ -39,7 +43,11 @@ public class Usuari {
         this.contrasenya = contrasenya;
     }
 
-    
+    /**
+     * Getters i Setters.
+     *
+     * @return
+     */
     public int getId() {
         return id;
     }
@@ -68,11 +76,14 @@ public class Usuari {
         this.contrasenya = contrasenya;
     }
 
+    /**
+     * Métode toString().
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return nom;
     }
-    
-    
-    
+
 }

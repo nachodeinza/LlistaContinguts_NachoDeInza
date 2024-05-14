@@ -5,7 +5,6 @@
 package com.mycompany.llistacontinguts_model;
 
 import java.sql.Date;
-import java.time.LocalDate;
 
 /**
  *

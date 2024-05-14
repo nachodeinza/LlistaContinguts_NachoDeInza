@@ -9,8 +9,12 @@ package com.mycompany.llistacontinguts_model;
  * @author alumne
  */
 public class Genere {
+
+    /**
+     * De genere guardem el id i el nom del genere, pero el id s'autoincrementa.
+     */
     private int id;
-    private String nom_genere;
+    private final String nom_genere;
 
     public Genere(String nom_genere) {
         this.nom_genere = nom_genere;
@@ -25,13 +29,4 @@ public class Genere {
         return nom_genere;
     }
 
-    public void setNom_genere(String nom_genere) {
-        this.nom_genere = nom_genere;
-    }
-
-    
-
-    
-    
-    
 }
