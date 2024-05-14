@@ -29,7 +29,8 @@ public class Model {
 
     /**
      * Getters i Setters.
-     * @return 
+     *
+     * @return
      */
     public String getNom_contingut() {
         return nom_contingut;
@@ -64,10 +65,11 @@ public class Model {
     }
 
     /**
-     * ObservableList de tipus usuari per a guardar en una llista els usuaris creats.
-     * @return 
+     * ObservableList de tipus usuari per a guardar en una llista els usuaris
+     * creats.
+     *
+     * @return
      */
-    
     public ObservableList<Usuari> llistaUsuaris() {
         ObservableList<Usuari> llistaUsuaris = FXCollections.observableArrayList();
         String sql = "select nom,correu,contrasenya from USUARI";
@@ -95,10 +97,11 @@ public class Model {
     }
 
     /**
-     * ObservableList de tipus Contingut per a guardar el contingut en una llista.
-     * @return 
+     * ObservableList de tipus Contingut per a guardar el contingut en una
+     * llista.
+     *
+     * @return
      */
-    
     public ObservableList<Contingut> llistaContingut() {
         ObservableList<Contingut> llistaContinguts = FXCollections.observableArrayList();
         String sql = "select titul,descripcio,clasificacio_edad,any_llançament,genere from CONTINGUT";
@@ -127,10 +130,11 @@ public class Model {
     }
 
     /**
-     * ObservableList de tipus ContingutUsuari per a guardar el contingut de cada usuari en una llista.
-     * @return 
+     * ObservableList de tipus ContingutUsuari per a guardar el contingut de
+     * cada usuari en una llista.
+     *
+     * @return
      */
-    
     public ObservableList<ContingutUsuari> llistaContingutUsuari() {
         ObservableList<ContingutUsuari> llistaContingutUsuari = FXCollections.observableArrayList();
         String sql = "SELECT c.titul, c.descripcio, c.clasificacio_edad, c.any_llançament, c.genere FROM CONTINGUT c INNER JOIN USUARI_CONTINGUT uc ON c.contingut_id = uc.contingut_id WHERE uc.usuari_id = ?";
@@ -162,10 +166,11 @@ public class Model {
     }
 
     /**
-     * ObservableList de tipus Valoració per a guardar totes les valoracions en una llista.
-     * @return 
+     * ObservableList de tipus Valoració per a guardar totes les valoracions en
+     * una llista.
+     *
+     * @return
      */
-    
     public ObservableList<Valoracio> llistaValoracions() {
 
         ObservableList<Valoracio> llistaValoracions = FXCollections.observableArrayList();
@@ -192,9 +197,9 @@ public class Model {
 
     /**
      * He creat un ObservableList de tipus String per a el selector d'edat.
-     * @return 
+     *
+     * @return
      */
-    
     public ObservableList<String> llistaEdad() {
         ObservableList<String> llistaEdad = FXCollections.observableArrayList();
 
@@ -206,10 +211,11 @@ public class Model {
     }
 
     /**
-     * He creat un ObservableList de tipus String per a el selector d'estat del contingut.
-     * @return 
+     * He creat un ObservableList de tipus String per a el selector d'estat del
+     * contingut.
+     *
+     * @return
      */
-    
     public ObservableList<String> llistaEstat() {
         ObservableList<String> llistaEstat = FXCollections.observableArrayList();
 
@@ -221,10 +227,11 @@ public class Model {
     }
 
     /**
-     * He creat un ObservableList de tipus String per al selector de calificació.
-     * @return 
+     * He creat un ObservableList de tipus String per al selector de
+     * calificació.
+     *
+     * @return
      */
-    
     public ObservableList<String> llistaCalificacio() {
         ObservableList<String> llistaCalificacio = FXCollections.observableArrayList();
 
@@ -244,10 +251,11 @@ public class Model {
     }
 
     /**
-     * He creat un ObservableList de tipus Genere per a guardar el nom dels generes.
-     * @return 
+     * He creat un ObservableList de tipus Genere per a guardar el nom dels
+     * generes.
+     *
+     * @return
      */
-    
     public ObservableList<Genere> llistaGeneres() {
         ObservableList<Genere> llistaGeneres = FXCollections.observableArrayList();
         String sql = "select nom_genere from GENERE";
@@ -272,11 +280,12 @@ public class Model {
     }
 
     /**
-     * Métode de tipus Usuari per a consultar l'usuari introduint el correu i contrasenya.
+     * Métode de tipus Usuari per a consultar l'usuari introduint el correu i
+     * contrasenya.
+     *
      * @param usuari
-     * @return 
+     * @return
      */
-    
     public boolean consultarUsuari(Usuari usuari) {
         boolean ok = false;
         String sql = "SELECT * FROM USUARI where correu=? AND contrasenya=?";
@@ -307,9 +316,9 @@ public class Model {
 
     /**
      * Métode per a consultar l'id del contingut escribint el titol.
-     * @return 
+     *
+     * @return
      */
-    
     public boolean consultarID_Contingut() {
         boolean ok = false;
         String sql = "SELECT contingut_id FROM CONTINGUT where titul=?";
@@ -338,21 +347,22 @@ public class Model {
     }
 
     /**
-     * Métode de tipus usuari per a modificar l'usuari passant el nom, correu i contrasenya.
+     * Métode de tipus usuari per a modificar l'usuari passant el nom, correu i
+     * contrasenya.
+     *
      * @param usuari
      * @return
      * @throws IOException
-     * @throws SQLException 
+     * @throws SQLException
      */
-    
     public boolean modificarUsuari(Usuari usuari) throws IOException, SQLException {
         boolean ok = false;
-        String sql = "UPDATE USUARI SET nom=?,correu=?,contrasenya=?";
+        String sql = "UPDATE USUARI SET contrasenya=? where correu=? AND contrasenya=?";
 
         Connection connection = new Connexio().connecta();
         try {
             PreparedStatement ordre = connection.prepareStatement(sql);
-            if (usuari.getNom().length() >= 1 && usuari.getCorreu().length() >= 1 && usuari.getContrasenya().length() >= 1) {
+            if (usuari.getNom().length() >= 1 && usuari.getCorreu().length() >= 1 && usuari.getContrasenya().length() >= 1 ) {
 
                 ordre.setString(1, usuari.getNom());
                 ordre.setString(2, usuari.getCorreu());
@@ -375,11 +385,12 @@ public class Model {
     }
 
     /**
-     * Métode de tipus usuari per a eliminar usuari introduint correu i contrasenya.
+     * Métode de tipus usuari per a eliminar usuari introduint correu i
+     * contrasenya.
+     *
      * @param usuari
-     * @return 
+     * @return
      */
-    
     public boolean eliminarUsuari(Usuari usuari) {
         boolean ok = false;
         String sql = "DELETE FROM USUARI WHERE correu=? AND contrasenya=? ";
@@ -396,11 +407,12 @@ public class Model {
     }
 
     /**
-     * Métode de tipus Contingut per a eliminar contingut passant el titol del contingut.
+     * Métode de tipus Contingut per a eliminar contingut passant el titol del
+     * contingut.
+     *
      * @param contingut
-     * @return 
+     * @return
      */
-    
     public boolean eliminarContingut(Contingut contingut) {
         boolean ok = false;
         String sql = "DELETE FROM CONTINGUT WHERE titul=? ";
@@ -416,14 +428,15 @@ public class Model {
     }
 
     /**
-     * Métode de tipus usuari per a afegir Usuari a la base de dades, passem el nom, correu, contrasenya menys el ID, perque s'autoincrementa.
+     * Métode de tipus usuari per a afegir Usuari a la base de dades, passem el
+     * nom, correu, contrasenya menys el ID, perque s'autoincrementa.
+     *
      * @param usuari
      * @return
      * @throws SQLException
      * @throws FileNotFoundException
-     * @throws IOException 
+     * @throws IOException
      */
-    
     public boolean afegeixUsuari(Usuari usuari) throws SQLException, FileNotFoundException, IOException {
         boolean ok = false;
         Connection connection = new Connexio().connecta();
@@ -447,14 +460,15 @@ public class Model {
     }
 
     /**
-     * Métode de tipus Contingut per a afegir Contingut a la base de dades, introduint titul,descripcio,clasificacio_edad,any_llançament,genere
+     * Métode de tipus Contingut per a afegir Contingut a la base de dades,
+     * introduint titul,descripcio,clasificacio_edad,any_llançament,genere
+     *
      * @param contingut
      * @return
      * @throws SQLException
      * @throws FileNotFoundException
-     * @throws IOException 
+     * @throws IOException
      */
-    
     public boolean afegeixContingut(Contingut contingut) throws SQLException, FileNotFoundException, IOException {
         boolean ok = false;
         Connection connection = new Connexio().connecta();
@@ -535,13 +549,13 @@ public class Model {
 
     /**
      * Métode de tipus Genere per afegir el Genere a la seva taula.
+     *
      * @param genere
      * @return
      * @throws SQLException
      * @throws FileNotFoundException
-     * @throws IOException 
+     * @throws IOException
      */
-    
     public boolean afegeixGenere(Genere genere) throws SQLException, FileNotFoundException, IOException {
         boolean ok = false;
         Connection connection = new Connexio().connecta();
@@ -563,12 +577,13 @@ public class Model {
     }
 
     /**
-     * Métode de tipus Valoració per a afegir valoracions dintre de la taula Valoració.
+     * Métode de tipus Valoració per a afegir valoracions dintre de la taula
+     * Valoració.
+     *
      * @param valoracio
      * @return
-     * @throws SQLException 
+     * @throws SQLException
      */
-    
     public boolean afegeixValoracio(Valoracio valoracio) throws SQLException {
         boolean ok = false;
         Connection connection = new Connexio().connecta();
@@ -592,11 +607,11 @@ public class Model {
 
     /**
      * Métode de tipus Valoració per a modificar la taula USUARI_CONTINGUT.
+     *
      * @param valoracio
      * @return
-     * @throws SQLException 
+     * @throws SQLException
      */
-    
     public boolean afegeixEstat(Valoracio valoracio) throws SQLException {
         boolean ok = false;
         Connection connection = new Connexio().connecta();

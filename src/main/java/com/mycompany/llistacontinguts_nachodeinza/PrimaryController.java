@@ -32,6 +32,8 @@ public class PrimaryController {
     TextField correu_t2;
     @FXML
     PasswordField contrasenya_t2;
+    @FXML
+    PasswordField novacontra;
 
     /**
      * Métode per afegir nou usuari
@@ -63,8 +65,7 @@ public class PrimaryController {
     @FXML
     public void modificar() throws SQLException, IOException {
 
-        Usuari usuari = new Usuari(nom_t.getText(), correu_t.getText(),
-                contrasenya_t.getText());
+        Usuari usuari = new Usuari(novacontra.getText(), correu_t.getText(), contrasenya_t.getText());
 
         boolean ok = model.modificarUsuari(usuari);
 
@@ -133,7 +134,7 @@ public class PrimaryController {
         nom_t.clear();
         correu_t.clear();
         contrasenya_t.clear();
-
+        novacontra.clear();
     }
 
     /**

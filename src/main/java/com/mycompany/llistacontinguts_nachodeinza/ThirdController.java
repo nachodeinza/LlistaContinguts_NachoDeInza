@@ -86,6 +86,7 @@ public class ThirdController {
         boolean ok1 = model.afegeixEstat(valoracio1);
         if (ok && ok1) {
             alerta("Valoració Afegida!!!");
+            esborrar();
         } else {
             alerta("No s'ha pogut afegir el Contingut");
         }
@@ -104,4 +105,10 @@ public class ThirdController {
         alerta.show();
     }
 
+    public void esborrar() {
+        comentari.clear();
+        estat.getSelectionModel().select(null);
+        calificacio.getSelectionModel().select(null);
+    }
+    
 }

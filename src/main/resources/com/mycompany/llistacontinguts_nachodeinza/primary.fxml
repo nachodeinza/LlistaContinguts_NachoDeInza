@@ -8,16 +8,16 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(#F5955D,#F5AF5D,#F5605D);" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.llistacontinguts_nachodeinza.PrimaryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(white, white,gray);" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.llistacontinguts_nachodeinza.PrimaryController">
    <children>
       <TextField fx:id="nom_t" layoutX="119.0" layoutY="171.0" prefHeight="26.0" prefWidth="173.0" />
       <TextField fx:id="correu_t" layoutX="119.0" layoutY="200.0" prefHeight="26.0" prefWidth="173.0" />
-      <Button layoutX="44.0" layoutY="283.0" mnemonicParsing="false" onAction="#afegir" text="Afegir Usuari" />
+      <Button layoutX="42.0" layoutY="300.0" mnemonicParsing="false" onAction="#afegir" text="Afegir Usuari" />
       <Label layoutX="21.0" layoutY="175.0" text="Nom:" />
       <Label layoutX="21.0" layoutY="204.0" text="Correu:" />
       <Label layoutX="20.0" layoutY="234.0" text="Contrasenya:" />
-      <Button layoutX="102.0" layoutY="329.0" mnemonicParsing="false" onAction="#modificar" text="Modificar Usuari" />
-      <Button layoutX="175.0" layoutY="283.0" mnemonicParsing="false" onAction="#eliminar" text="Eliminar Usuari" />
+      <Button layoutX="87.0" layoutY="345.0" mnemonicParsing="false" onAction="#modificar" text="Modificar Contrasenya" />
+      <Button layoutX="181.0" layoutY="300.0" mnemonicParsing="false" onAction="#eliminar" text="Eliminar Usuari" />
       <Label layoutX="311.0" layoutY="196.0" prefHeight="16.0" prefWidth="49.0" text="Correu:" />
       <Label layoutX="311.0" layoutY="226.0" text="Contrasenya:" />
       <Button layoutX="449.0" layoutY="267.0" mnemonicParsing="false" onAction="#iniciSessio" text="Inici Sessió" />
@@ -40,5 +40,7 @@
          </font>
       </Label>
       <TextField fx:id="correu_t2" layoutX="414.0" layoutY="191.0" prefHeight="26.0" prefWidth="173.0" />
+      <Label layoutX="11.0" layoutY="266.0" text="Nova Contrasenya:" />
+      <PasswordField fx:id="novacontra" layoutX="119.0" layoutY="260.0" prefHeight="26.0" prefWidth="173.0" />
    </children>
 </AnchorPane>

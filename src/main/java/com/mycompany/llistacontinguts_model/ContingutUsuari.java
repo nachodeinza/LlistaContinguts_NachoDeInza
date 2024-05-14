@@ -27,7 +27,11 @@ public class ContingutUsuari {
 
     @Override
     public String toString() {
-        return titol + ", " + descripcio + ", " + edad + ", " + any + ", " + genere;
+        return titol + ", " + descripcio + ", " + edad + ", " + extractYear(any) + ", " + genere;
+    }
+
+    private String extractYear(String any) {
+        return any.length() >= 4 ? any.substring(0, 4) : any;
     }
 
     public String getTitol() {

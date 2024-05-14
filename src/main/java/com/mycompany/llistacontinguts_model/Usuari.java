@@ -18,6 +18,7 @@ public class Usuari {
     private String nom;
     private String correu;
     private String contrasenya;
+    private String contrasenya_nova;
 
     public Usuari(int id, String nom, String correu, String contrasenya) {
         this.id = id;
@@ -50,6 +51,14 @@ public class Usuari {
      */
     public int getId() {
         return id;
+    }
+
+    public String getContrasenya_nova() {
+        return contrasenya_nova;
+    }
+
+    public void setContrasenya_nova(String contrasenya_nova) {
+        this.contrasenya_nova = contrasenya_nova;
     }
 
     public String getNom() {
