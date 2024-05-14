@@ -10,7 +10,7 @@ package com.mycompany.llistacontinguts_model;
  */
 public class Genere {
     private int id;
-    private final String nom_genere;
+    private String nom_genere;
 
     public Genere(String nom_genere) {
         this.nom_genere = nom_genere;
@@ -24,6 +24,12 @@ public class Genere {
     public String toString() {
         return nom_genere;
     }
+
+    public void setNom_genere(String nom_genere) {
+        this.nom_genere = nom_genere;
+    }
+
+    
 
     
     

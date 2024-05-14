@@ -4,7 +4,6 @@ module com.mycompany.llistacontinguts_nachodeinza {
     requires  java.sql; 
     requires java.desktop; 
     requires javafx.base;
-    requires java.base;
     opens com.mycompany.llistacontinguts_nachodeinza to javafx.fxml;
     exports com.mycompany.llistacontinguts_nachodeinza;
 }

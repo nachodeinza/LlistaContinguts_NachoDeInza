@@ -1,0 +1,71 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 30 d’abr. 2024, 13:21:21
+    Author     : alumne
+*/
+
+/* Estilos para el ComboBox */
+.combo-box {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #f0f0f0); /* Degradado de fondo */
+    -fx-border-color: #cccccc; /* Color del borde */
+    -fx-border-width: 1px; /* Grosor del borde */
+    -fx-border-radius: 3px; /* Radio de borde */
+    -fx-font-family: "San Francisco"; /* Tipo de letra */
+}
+
+/* Estilos para el TextField */
+.text-field {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #f0f0f0); /* Degradado de fondo */
+    -fx-border-color: #cccccc; /* Color del borde */
+    -fx-border-width: 1px; /* Grosor del borde */
+    -fx-border-radius: 3px; /* Radio de borde */
+    -fx-font-family: "San Francisco"; /* Tipo de letra */
+}
+
+/* Estilos para el botón */
+.button {
+    -fx-background-color: linear-gradient(to bottom, #007bff, #0056b3); /* Degradado de fondo */
+    -fx-text-fill: white; /* Color del texto */
+    -fx-padding: 8px 16px; /* Espaciado interno */
+    -fx-border-radius: 3px; /* Radio de borde */
+    -fx-cursor: hand; /* Cursor */
+    -fx-font-family: "San Francisco"; /* Tipo de letra */
+}
+
+/* Estilos para el ComboBox de edad y géneros */
+.combo-box:editable {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #f0f0f0); /* Degradado de fondo */
+    -fx-border-color: #cccccc; /* Color del borde */
+    -fx-border-width: 1px; /* Grosor del borde */
+    -fx-border-radius: 3px; /* Radio de borde */
+    -fx-font-family: "San Francisco"; /* Tipo de letra */
+}
+
+/* Estilos para los elementos cuando están enfocados */
+.combo-box:focused,
+.text-field:focused,
+.combo-box:editable:focused {
+    -fx-border-color: #007bff; /* Cambia el color del borde cuando está enfocado */
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #f0f0f0); /* Cambia el degradado de fondo cuando está enfocado */
+    -fx-font-family: "San Francisco"; /* Tipo de letra */
+}
+
+/* Estilos para los Labels */
+.label {
+    -fx-font-family: "Arial"; /* Tipo de letra */
+    -fx-text-fill: #333333; /* Color del texto */
+}
+
+/* Estilos para el AnchorPane */
+.anchor-pane {  
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #f0f0f0); /* Degradado de fondo */
+}
+
+
+
+
+
+

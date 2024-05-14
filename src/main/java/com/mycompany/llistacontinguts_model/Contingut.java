@@ -10,7 +10,7 @@ package com.mycompany.llistacontinguts_model;
  */
 public class Contingut {
     private int id;
-    private final String titol;
+    private String titol;
     private String descripcio;
     private String edad;
     private String any;
@@ -47,7 +47,7 @@ public class Contingut {
 
     public String getGenere() {
         return genere;
-    }   
+    }
 
     @Override
     public String toString() {

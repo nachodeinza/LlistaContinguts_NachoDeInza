@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.mycompany.llistacontinguts_model;
 
 import java.io.FileNotFoundException;
@@ -7,7 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -20,33 +23,7 @@ public class Model {
     private int id_usuari;
     private int id_genere;
     private int id_contingut;
-    private int id_contingut2;
     private String nom_genere;
-    private String nom_contingut;
-
-    public String getNom_contingut() {
-        return nom_contingut;
-    }
-
-    public void setNom_contingut(String nom_contingut) {
-        this.nom_contingut = nom_contingut;
-    }
-
-    public int getId_contingut() {
-        return id_contingut;
-    }
-
-    public int getId_contingut2() {
-        return id_contingut2;
-    }
-
-    public void setNom_genere(String nom_genere) {
-        this.nom_genere = nom_genere;
-    }
-
-    public String getNom_genere() {
-        return nom_genere;
-    }
 
     public int getId_genere() {
         return id_genere;
@@ -55,6 +32,17 @@ public class Model {
     public int getId_usuari() {
         return id_usuari;
     }
+
+    public String getNom_genere() {
+        return nom_genere;
+    }
+
+    public void setNom_genere(String nom_genere) {
+        this.nom_genere = nom_genere;
+    }
+    
+    
+    
 
     public ObservableList<Usuari> llistaUsuaris() {
         ObservableList<Usuari> llistaUsuaris = FXCollections.observableArrayList();
@@ -109,101 +97,25 @@ public class Model {
         return llistaContinguts;
     }
 
-    public ObservableList<ContingutUsuari> llistaContingutUsuari() {
-        ObservableList<ContingutUsuari> llistaContingutUsuari = FXCollections.observableArrayList();
-        String sql = "SELECT c.titul, c.descripcio, c.clasificacio_edad, c.any_llançament, c.genere FROM CONTINGUT c INNER JOIN USUARI_CONTINGUT uc ON c.contingut_id = uc.contingut_id WHERE uc.usuari_id = ?";
-        Connection connection = new Connexio().connecta();
-        try {
-
-            PreparedStatement ordre5 = connection.prepareStatement(sql);
-            ordre5.setInt(1, id_usuari);
-            ResultSet resultSet5 = ordre5.executeQuery();
-            while (resultSet5.next()) {
-                llistaContingutUsuari.add(
-                        new ContingutUsuari(
-                                resultSet5.getString("titul"),
-                                resultSet5.getString("descripcio"),
-                                resultSet5.getString("clasificacio_edad"),
-                                resultSet5.getString("any_llançament"),
-                                resultSet5.getString("genere")
-                        )
-                );
-            }
-
-            connection.close();
-
-        } catch (SQLException throwables) {
-            System.out.println("Error:" + throwables.getMessage());
-        }
-        return llistaContingutUsuari;
-
-    }
-
-    public ObservableList<Valoracio> llistaValoracions() {
-
-        ObservableList<Valoracio> llistaValoracions = FXCollections.observableArrayList();
-        String sql = "SELECT * FROM VALORACIO ";
-        Connection connection = new Connexio().connecta();
-        try {
-            PreparedStatement ordre6 = connection.prepareStatement(sql);
-            ResultSet resultSet6 = ordre6.executeQuery();
-            while (resultSet6.next()) {
-                llistaValoracions.add(
-                        new Valoracio(resultSet6.getInt(1),
-                                resultSet6.getString(2),
-                                resultSet6.getDate(3),
-                                resultSet6.getString(4),
-                                resultSet6.getInt(5))
-                );
-            }
-        } catch (Exception e) {
-        }
-
-        return llistaValoracions;
-
-    }
-
     public ObservableList<String> llistaEdad() {
         ObservableList<String> llistaEdad = FXCollections.observableArrayList();
 
-        llistaEdad.add("+3");
-        llistaEdad.add("+12");
-        llistaEdad.add("+18");
+        if (llistaEdad.contains(llistaEdad)) {
+
+        } else {
+
+            llistaEdad.add("+3");
+            llistaEdad.add("+12");
+            llistaEdad.add("+18");
+        }
 
         return llistaEdad;
-    }
-
-    public ObservableList<String> llistaEstat() {
-        ObservableList<String> llistaEstat = FXCollections.observableArrayList();
-
-        llistaEstat.add("Per veure");
-        llistaEstat.add("Vista");
-        llistaEstat.add("Veient");
-
-        return llistaEstat;
-    }
-
-    public ObservableList<String> llistaCalificacio() {
-        ObservableList<String> llistaCalificacio = FXCollections.observableArrayList();
-
-        llistaCalificacio.add("0");
-        llistaCalificacio.add("1");
-        llistaCalificacio.add("2");
-        llistaCalificacio.add("3");
-        llistaCalificacio.add("4");
-        llistaCalificacio.add("5");
-        llistaCalificacio.add("6");
-        llistaCalificacio.add("7");
-        llistaCalificacio.add("8");
-        llistaCalificacio.add("9");
-        llistaCalificacio.add("10");
-
-        return llistaCalificacio;
     }
 
     public ObservableList<Genere> llistaGeneres() {
         ObservableList<Genere> llistaGeneres = FXCollections.observableArrayList();
         String sql = "select nom_genere from GENERE";
+        //String sql="select nom from usuaris";
         Connection connection = new Connexio().connecta();
         try {
             Statement ordre = connection.createStatement();
@@ -236,33 +148,6 @@ public class Model {
 
             if (resultSet.next()) {
                 id_usuari = resultSet.getInt("usuari_id");
-                ok = true;
-            }
-
-        } catch (SQLException e) {
-            System.out.println("Error SQL:" + e.getMessage());
-        } finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                System.out.println("Error:" + e.getMessage());
-            }
-        }
-
-        return ok;
-    }
-
-    public boolean consultarID_Contingut() {
-        boolean ok = false;
-        String sql = "SELECT contingut_id FROM CONTINGUT where titul=?";
-        Connection connection = new Connexio().connecta();
-        try {
-            PreparedStatement ordre = connection.prepareStatement(sql);
-            ordre.setString(1, nom_contingut);
-            ResultSet resultSet = ordre.executeQuery();
-
-            if (resultSet.next()) {
-                id_contingut2 = resultSet.getInt("contingut_id");
                 ok = true;
             }
 
@@ -359,7 +244,7 @@ public class Model {
         return ok;
     }
 
-    public boolean afegeixContingut(Contingut contingut) throws SQLException, FileNotFoundException, IOException {
+    public boolean afegeixContingut(Contingut contingut, Genere genere) throws SQLException, FileNotFoundException, IOException {
         boolean ok = false;
         Connection connection = new Connexio().connecta();
         String sql = "INSERT INTO CONTINGUT(titul,descripcio,clasificacio_edad,any_llançament,genere) VALUES (?,?,?,?,?)";
@@ -396,16 +281,16 @@ public class Model {
 
         String sql3 = "SELECT genere_id FROM GENERE WHERE nom_genere=?";
         PreparedStatement ordre3 = connection.prepareStatement(sql3);
-        ordre3.setString(1, nom_genere); // Establecer el valor del parámetro
-        ResultSet resultSet3 = ordre3.executeQuery(); // Ejecutar la consulta después de establecer el valor del parámetro
-        try {
+        ResultSet resultSet3 = ordre3.executeQuery();
 
+        try {
             if (resultSet3.next()) {
+                ordre3.setString(1, genere.getNom_genere());
                 id_genere = resultSet3.getInt("genere_id");
-                ordre3.execute();
+                ordre3.executeQuery();
                 ok = true;
-                System.out.println("ID del género seleccionado: " + id_genere); // Imprimir el ID del género seleccionado
             }
+
         } catch (SQLException throwables) {
             System.out.println("Error:" + throwables.getMessage());
         }
@@ -416,18 +301,6 @@ public class Model {
             ordre4.setInt(1, id_genere);
             ordre4.setInt(2, id_contingut);
             ordre4.execute();
-            ok = true;
-
-        } catch (SQLException throwables) {
-            System.out.println("Error:" + throwables.getMessage());
-        }
-
-        String sql5 = "INSERT INTO USUARI_CONTINGUT(usuari_id, contingut_id) VALUES(?,?)";
-        PreparedStatement ordre5 = connection.prepareStatement(sql5);
-        try {
-            ordre5.setInt(1, id_usuari);
-            ordre5.setInt(2, id_contingut);
-            ordre5.execute();
             ok = true;
 
         } catch (SQLException throwables) {
@@ -455,47 +328,5 @@ public class Model {
         }
 
         return ok;
-    }
-
-    public boolean afegeixValoracio(Valoracio valoracio) throws SQLException {
-        boolean ok = false;
-        Connection connection = new Connexio().connecta();
-        String sql = "INSERT INTO VALORACIO(usuari_id, calificacio, comentari, data_valoracio, contingut_id) VALUES (?,?,?,?,?)";
-        PreparedStatement ordre = connection.prepareStatement(sql);
-        try {
-            ordre.setInt(1, id_usuari);
-            ordre.setString(2,valoracio.getCalificació());
-            ordre.setString(3, valoracio.getComentari());
-            ordre.setDate(4, valoracio.getData());
-            ordre.setInt(5, id_contingut2);
-            ordre.execute();
-            ok = true;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        
-        return ok;
-
-    }
-    
-    public boolean afegeixEstat(Valoracio valoracio) throws SQLException {
-    boolean ok = false;
-    Connection connection = new Connexio().connecta();
-    String sql = "UPDATE USUARI_CONTINGUT SET estat=?, calificacio=? where contingut_id=? AND usuari_id=?";
-    PreparedStatement ordre = connection.prepareStatement(sql);
-        try {
-            ordre.setString(1, valoracio.getEstat());
-            ordre.setString(2, valoracio.getCalificació());
-            ordre.setInt(3, id_contingut2);
-            ordre.setInt(4, id_usuari);
-            ordre.execute();
-            ok = true;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        
-        
-    return ok;
-    
     }
 }
